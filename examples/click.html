@@ -33,34 +33,58 @@
             <input type="button" id="coffee" value="Show Coffee Background" />
         </p>
         <pre>&lt;script src=&quot;//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;jquery.backstretch.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../dist/jquery.backstretch.min.js&quot;&gt;&lt;/script&gt;
 &lt;script&gt;
     $.backstretch(&quot;pot-holder.jpg&quot;, {speed: 500});
     
     $(&quot;#pot-holder&quot;).click(function (e) {
       e.preventDefault();
-      $.backstretch(&quot;pot-holder.jpg&quot;);
+      $.backstretch(&quot;pot-holder.jpg&quot;,{
+        overlay: {
+          init: true,
+          background: "green",
+          opacity: 0.3
+        }
+      );
     });
     
     $(&quot;#coffee&quot;).click(function (e) {
       e.preventDefault();
-      $.backstretch(&quot;coffee.jpg&quot;);
+      $.backstretch(&quot;coffee.jpg&quot;,,{
+        overlay: {
+          init: true,
+          background: "blue",
+          opacity: 0.3
+        }
+      );
     });
 &lt;/script&gt;</pre>      
     </div>
-	<script src="../libs/jquery/jquery.js"></script>
-  <script src="../src/jquery.backstretch.js"></script>
+  <script src="../bower_components/jquery/jquery.min.js"></script>
+  <script src="../dist/jquery.backstretch-overlay.js"></script>
 	<script>
 	    $.backstretch("pot-holder.jpg", {fade: 500});
 	    
 	    $("#pot-holder").click(function (e) {
         e.preventDefault();
-	      $.backstretch("pot-holder.jpg");
+	      $.backstretch("pot-holder.jpg",{
+          overlay: {
+            init: true,
+            background: "green",
+            opacity: 0.4
+          }
+        });
 	    });
 	    
 	    $("#coffee").click(function (e) {
         e.preventDefault();
-	      $.backstretch("coffee.jpg");
+	      $.backstretch("coffee.jpg",{
+          overlay: {
+            init: true,
+            background: "blue",
+            opacity: 0.3
+          }
+        });
 	    });
     </script>
 </body>

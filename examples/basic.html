@@ -38,7 +38,7 @@
         <h1>Basic Demo</h1>
         <p>In its simplest form, Backstretch can be called by passing in the path to an image, and it will be applied to the page's <code>body</code>.</p>
         <pre>&lt;script src=&quot;//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;jquery.backstretch.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../dist/jquery.backstretch.min.js&quot;&gt;&lt;/script&gt;
 &lt;script&gt;
     $.backstretch(&quot;pot-holder.jpg&quot;);
 &lt;/script&gt;</pre>
@@ -48,16 +48,28 @@
           <div><p>The background image on this element was set using Backstretch.</p></div>
         </div>
         <pre>&lt;script src=&quot;//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;jquery.backstretch.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../dist/jquery.backstretch.min.js&quot;&gt;&lt;/script&gt;
 &lt;script&gt;
-    $(&quot;.other&quot;).backstretch(&quot;coffee.jpg&quot;);
+    $(&quot;.other&quot;).backstretch(&quot;coffee.jpg&quot;,{
+      overlay: {
+        init: true,
+        background: &quot;purple&quot;,
+        opacity: 0.8
+      }
+    });
 &lt;/script&gt;</pre>
     </div>
-	<script src="../libs/jquery/jquery.js"></script>
-	<script src="../src/jquery.backstretch.js"></script>
+	<script src="../bower_components/jquery/jquery.min.js"></script>
+	<script src="../dist/jquery.backstretch-overlay.js"></script>
 	<script>
 	    $.backstretch(["pot-holder.jpg"]);
-      $(".other").backstretch("coffee.jpg");
+      $(".other").backstretch("coffee.jpg",{
+        overlay: {
+          init: true,
+          background: "purple",
+          opacity: 0.8
+        }
+      });
   </script>
 </body>
 </html>

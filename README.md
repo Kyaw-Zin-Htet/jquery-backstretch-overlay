@@ -1,4 +1,4 @@
-# Backstretch
+# Backstretch Overlay
 
 Backstretch is a simple jQuery plugin that allows you to add a dynamically-resized, slideshow-capable background image to any page or element. The image will stretch to fit the page/element, and will automatically resize as the window/element size changes.
 ## Demo
@@ -11,7 +11,7 @@ Include the jQuery library (version 1.7 or newer) and Backstretch plugin files i
 
 ```html
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script src="jquery.backstretch.min.js"></script>
+<script src="dist/jquery.backstretch.min.js"></script>
 <script>
   // To attach Backstrech as the body's background
   $.backstretch("path/to/image.jpg");
@@ -24,7 +24,14 @@ Include the jQuery library (version 1.7 or newer) and Backstretch plugin files i
     "path/to/image.jpg",
     "path/to/image2.jpg",
     "path/to/image3.jpg"    
-  ], {duration: 4000});
+  ], {
+    duration: 4000,
+    overlay: {
+      init: true,
+      background: "#444444",
+      opacity: 0.6
+    }
+  });
 </script>
 ```
 
@@ -36,6 +43,7 @@ Include the jQuery library (version 1.7 or newer) and Backstretch plugin files i
 | `centeredY` | This parameter controls whether or not we center the image on the Y axis to account for the aforementioned discrepancy. | Boolean | true |
 | `fade` | This is the speed at which the image will fade in. Integers in milliseconds are accepted, as well as standard jQuery speed strings (slow, normal, fast). | Integer or String | 0 |
 | `duration` | The amount of time in between slides, when using Backstretch as a slideshow, expressed as the number of milliseconds. | Integer | 5000 |
+| `overlay` | Overlay Option | Object | `{ init: false, background: "#000000", opacity: 0.4 }` |
 
 ## Slideshow API
 
@@ -47,7 +55,13 @@ $('.foo').backstretch([
   'path/to/image.jpg',
   'path/to/image2.jpg',
   'path/to/image3.jpg'
-]);
+],{
+  overlay: {
+    init: true,
+    background: "#444444",
+    opacity: 0.6
+  }
+});
 
 // Pause the slideshow
 $('.foo').backstretch("pause");
@@ -75,7 +89,11 @@ $('.foo').backstretch([
   'path/to/image.jpg',
   'path/to/image2.jpg',
   'path/to/image3.jpg'
-]);
+],{
+  overlay: {
+    init: true
+  }
+});
 
 // Access the instance
 var instance = $('.foo').data('backstretch');

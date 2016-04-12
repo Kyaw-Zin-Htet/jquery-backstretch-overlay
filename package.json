@@ -1,6 +1,6 @@
 {
-  "name": "jquery.backstretch",
-  "title": "Backstretch",
+  "name": "jquery.backstretch-overlay",
+  "title": "Backstretch Overlay",
   "description": "A simple jQuery plugin that allows you to add a dynamically-resized, slideshow-capable background image to any page or element.",
   "version": "2.0.4",
   "homepage": "http://srobbin.com/jquery-plugins/backstretch/",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/srobbin/jquery-backstretch.git"
+    "url": "git://github.com/alisamar/jquery-backstretch-overlay.git"
   },
   "bugs": {
     "url": "https://github.com/srobbin/jquery-backstretch/issues"
@@ -25,5 +25,13 @@
   "dependencies": {
     "jquery": ">= 1.7"
   },
-  "keywords": []
+  "keywords": [],
+  "devDependencies": {
+    "grunt-contrib-concat": "^1.0.0",
+    "grunt-contrib-connect": "^1.0.1",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-qunit": "^1.1.0",
+    "grunt-contrib-uglify": "^1.0.1",
+    "underscore": "^1.8.3"
+  }
 }

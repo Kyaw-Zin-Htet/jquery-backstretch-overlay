@@ -27,7 +27,7 @@
         <h1>Slideshow Demo</h1>
         <p>This demonstrates a commonly-asked question: how do I use Backstretch to create a slideshow of background images? Easy! Just pass in an array of image paths.</p>
         <pre>&lt;script src=&quot;//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;jquery.backstretch.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../dist/jquery.backstretch.min.js&quot;&gt;&lt;/script&gt;
 &lt;script&gt;
     $.backstretch([
       &quot;pot-holder.jpg&quot;,
@@ -35,12 +35,17 @@
       &quot;dome.jpg&quot;
       ], {
         fade: 750,
-        duration: 4000
+        duration: 4000,
+        overlay: {
+          init: true,
+          background: "red",
+          opacity: 0.6
+        }
     });
 &lt;/script&gt;</pre>
     </div>
-	<script src="../libs/jquery/jquery.js"></script>
-    <script src="../src/jquery.backstretch.js"></script>
+  <script src="../bower_components/jquery/jquery.min.js"></script>
+  <script src="../dist/jquery.backstretch-overlay.js"></script>
 	<script>
         $.backstretch([
           "pot-holder.jpg",
@@ -48,7 +53,12 @@
           "dome.jpg"
         ], {
             fade: 750,
-            duration: 4000
+            duration: 4000,
+            overlay: {
+              init: true,
+              background: "red",
+              opacity: 0.6
+            }
         });
     </script>
 </body>

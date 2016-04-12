@@ -1,6 +1,10 @@
-/*! Backstretch - v2.0.4 - 2013-06-19
-* http://srobbin.com/jquery-plugins/backstretch/
-* Copyright (c) 2013 Scott Robbin; Licensed MIT */
+/*
+ * Backstretch
+ * http://srobbin.com/jquery-plugins/backstretch/
+ *
+ * Copyright (c) 2013 Scott Robbin
+ * Licensed under the MIT license.
+ */
 
 ;(function ($, window, undefined) {
   'use strict';
@@ -71,6 +75,11 @@
     , centeredY: true   // Should we center the image on the Y axis?
     , duration: 5000    // Amount of time in between slides (if slideshow)
     , fade: 0           // Speed of fade transition between slides
+    , overlay: {
+        init: false
+      , backgroundColor: '#000'  // Overlayer background
+      , opacity: 0.4 // Opacity
+    }
   };
 
   /* STYLES
@@ -101,6 +110,15 @@
         , maxHeight: 'none'
         , maxWidth: 'none'
         , zIndex: -999999
+      }
+    , overlay: {
+          backgroundColor: 'black'
+        , opacity: 0.4
+        , width: '100%'
+        , height: '100%'
+        , position: 'absolute'
+        , left: 0
+        , top: 0
       }
   };
 
@@ -135,6 +153,16 @@
     // Don't create a new wrap if one already exists (from a previous instance of Backstretch)
     var $existing = this.$container.children(".backstretch").first();
     this.$wrap = $existing.length ? $existing : $('<div class="backstretch"></div>').css(styles.wrap).appendTo(this.$container);
+
+    // Overlayer Background wrapper
+    var overlay_options = {
+        backgroundColor: this.options.overlay.background
+      , opacity: this.options.overlay.opacity
+    };
+    var overlay_style = $.extend({}, styles.overlay, overlay_options || {});
+    var $overlayer_bg = $('<div class="bg-overlay"></div>').css(overlay_style);
+    if(this.options.overlay.init) this.$wrap.append($overlayer_bg);
+
 
     // Non-body elements need some style adjustments
     if (!this.isBody) {
